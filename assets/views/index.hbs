@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+        .active{
+            color: orangered ;
+        }
+        .active:hover{
+            color: orangered !important;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700;1,700&display=swap" rel="stylesheet">
+    <title>Portofolio</title>
+</head>
+<body>
+     <!-- navbar -->
+   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="./assets/img/brandred.png" style="width: 50px" />
+      </a>
+      <button
+        style="border: none;"
+        onclick="clickHamburger()"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="blog"
+              >Add Project</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="testimoni"
+              >Testimonials</a
+            >
+          </li>
+        </ul>
+        <a href="contact" class="btn btn-danger" style="background-color: orangered;">Contact Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- end navbar -->
+    <div class="hamburger-menu hamburger-hide" id="hamburger-menu">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="blog">My Project</a>
+            </li>
+            <li>
+                <a href="contact">Contact Me</a>
+            </li>
+            <li>
+                <a href="testimoni">Testimonials</a>
+            </li>
+        </ul>
+    </div>
+    </body>
+    <div class="container">
+        <div class="card">
+            <div class="box">
+            <img src="./assets/img/apin.jpg " alt="profile">
+            <h2>ALFIN DWI</h2>
+            <p>Fullstack Developer</p>
+            </div>
+            <div class="text">
+                <p class="p1">
+                    Hi Welcome to my hut
+                </p>
+                <p class="p2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt mollitia consectetur sint, ea similique sapiente laudantium,
+                    incidunt unde illum aspernatur minus, qui ducimus aliquid nihil veniam aut blanditiis ipsam voluptate. 
+                    Et minus nesciunt obcaecati voluptates praesentium perferendis quas harum ea quibusdam. Nesciunt vitae 
+                    adipisci exercitationem qui dolores eligendi placeat natus totam architecto consequatur quam cum inventore, 
+                    ad dolorem sint doloremque ipsum aut sapiente ut deleniti culpa accusamus quos numquam? Voluptate.
+                </p>
+                <a href="contact" class="contact">Contact</a>
+                <a class="p3">download CV <a class="fa-solid fa-right-to-bracket fa-rotate-90" style="text-decoration: none; color: black;"></a></a>
+                <div class="button">
+                    <a href="https://www.linkedin.com/in/alvin-dwi-a20452308/"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/alvindvvi/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/alvin.dwi.10297?locale=id_ID"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://x.com/alvindvvi"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div id="new-page" class="blog-list">
+  {{#each data}}
+    <div class="card-project">
+      <img src="{{this.image}}" alt="image-project">
+      <a href="/blog-detail/{{this.id}}" target="_blank">
+        <h3>{{this.title}}</h3>
+      </a>
+      <p>Durasi: {{this.duration}}</p>
+      <p>{{this.content}}</p>
+      <div class="image-card">
+        <img src="./assets/img/ps.png" alt="">
+        <img src="./assets/img/andro.png" alt="">
+        <img src="./assets/img/js.png" alt="">
+      </div>
+      <div class="button-card">
+        <a class="btn btn-primary" href="/edit-blog/{{this.id}}" style="color: white;">Edit</a>
+        <a class="btn btn-primary" href="/delete-blog/{{this.id}}" style="color: white;">Delete</a>
+      </div>
+      <p class="time" id="time">{{this.created_at}}</p>
+    </div>
+  {{/each}}
+</div>
+
+      
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/blog.js"></script>
+    <script src="./assets/learning/hof.js"></script>
+</body>
+</html>

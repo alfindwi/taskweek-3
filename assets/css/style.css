@@ -1,0 +1,647 @@
+body {
+    margin: 0;
+    background-color: rgb(203, 203, 203);
+}
+
+.box {
+    display: inline-block;
+}
+
+.colorCostume {
+    color: blue;
+}
+
+#description {
+    color: red;
+    font-weight: 999;
+}
+
+p.costume {
+    font-weight: 999999;
+}
+
+/* navbar */
+
+nav {
+    background-color: rgb(237, 237, 237);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+nav button{
+    display: none;
+}
+
+
+
+.scaled-img {
+    width: 50px;
+    height: auto;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 50px;
+}
+
+.left ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.left ul li {
+    list-style-type: none;
+    margin-right: 40px;
+}
+
+.left ul li a {
+    font-family: "Poppins";
+    text-decoration: none;
+    color: black;
+}
+
+.left ul li a:hover {
+    color: orangered;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.right a {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    background-color: #f73513;
+    padding: 8px 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* card */
+
+.card {
+    display: flex;
+    flex-direction:row-reverse;
+    border: 1px;
+    margin: 20px 80px;
+    width: auto;
+    background-color: white;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.card .text {
+    margin-top: 50px;
+    margin-left: 40px;
+    padding-bottom: 0;
+}
+
+.card .text .p1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-style: static;
+    font-weight: bold;
+}
+
+.card .text .p2 {
+    font-family: "Poppins", sans-serif;
+    text-align: justify;
+    font-size: 12px;
+    font-weight: 450;
+}
+
+.card .text button {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    border-radius: 50px;
+    border: none;
+    padding: 7px 20px;
+    background-color: rgb(9, 9, 63);
+    color: white;
+    cursor: pointer;
+}
+
+.card .text .p3 {
+    text-decoration: none; 
+    color: black;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+.card .text .p3 i {
+    margin-left: 5px;
+}
+
+.button {
+    display: flex;
+    margin-top: 20px;
+}
+
+.button a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    text-decoration: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #000000;
+    color: white;
+}
+
+.button a i {
+    font-size: 20px;
+}
+
+/* box */
+.box {
+    border: 1px;
+    width: 130%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+    margin-left: 80px;
+    box-shadow: 5px 10px 15px rgb(0, 0, 0, 0.3);
+    border-radius: 14px;
+}
+
+.text .contact{
+    margin: 0;
+    border: 1px solid black; 
+    padding-top: 2px; 
+    padding-bottom: 6px; 
+    padding-right: 10px; 
+    padding-left: 10px; 
+    border-radius: 30px; 
+    size: 12;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(5, 5, 77);
+}
+
+.box img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.box h2 {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 1px 0 0;
+    font-size: 25px;
+}
+
+.box p {
+    text-align: center;
+    font-size: 13px;
+    margin: 0 0 10px;
+}
+
+/* contact */
+.contact {
+    border: 1px solid black;
+    margin: 30px;
+    width: auto;
+}
+
+.contact input {
+    border-radius: 5px;
+}
+
+/* formulir contact */
+
+
+form p {
+    font-size: 25px;
+    text-align: center;
+    font-weight: 600;
+    font-family: "poppins";
+    margin: 0px 3px;
+}
+
+form {
+    width: 300px;
+    margin: 20px auto;
+    background-color: rgb(203, 203, 203);
+}
+
+input, select, textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(197, 182, 182);
+    box-shadow: 5px 10px 5px rgb(0, 0, 0, 0.3);
+}
+
+form label {
+    font-family: "Poppins";
+    font-weight: 600;
+}
+
+form textarea {
+    resize: none;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+form button {
+    font-family: "poppins";
+    font-weight: bold;
+    background-color: orangered;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 20px;
+    margin-top: 10px;
+    float: right;
+    color: white;
+}
+
+/* testimonial */
+
+h1{
+    text-align: center;
+    font-family: "Poppins";
+    padding: 10px;  
+}
+
+.testimoni-body{
+    background-color: rgb(222, 222, 222);
+}
+
+.testimoni-container{
+    display: flex;
+    justify-content: center; 
+    gap: 20px; 
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+
+.testimoni-container .testimoni-card{
+    border-radius: 5px;
+    background-color: white;
+    width: 25%;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px; 
+}
+
+.testimoni-container .testimoni-card img{
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 88%;
+}
+.testimoni-card p{
+    margin-left: 20px;
+    font-weight:lighter;
+    font-size: 17px ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+}
+.testimoni-card h5{
+    margin: 20px 10px 5px 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.rating-container h4{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+
+.rating{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    margin: 5px;
+}
+
+
+.rating .rating-btn{
+    border: none;
+    background-color: black;
+    padding: 4px 10px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.star {
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.star p {
+    font-style: normal;
+    font-size: 17px;
+    font-weight: 600;
+    margin-right: 2px;
+}
+
+.star i {
+    margin-left: 5px; 
+    margin-right: 10px; 
+}
+
+/* end testimonial */
+
+/* card */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.blog-list {
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin: 15px;
+    font-family: "Poppins", sans-serif;
+}
+
+.card p {
+    margin: 15px;
+    color: #333;
+}
+
+.image-card {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px;
+}
+
+.image-card img {
+    width: 30px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.button-card {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px;
+}
+
+.button-card button {
+    border: none;
+    border-radius: 5px;
+    background-color: navy;
+    color: white;
+    padding: 5px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.card .time {
+    margin: 15px;
+    font-size: 12px;
+    text-align: right;
+    color: #666;
+}
+
+/* end card */
+
+/* card */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.blog-list {
+    padding: 0px;
+    background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px; 
+}
+
+
+.card-project {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 40px 20px;
+    max-width: 100;
+}
+
+.card-project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card-project h3 {
+    font-size: 20px; 
+    margin: 10px 0; 
+    font-family: "Poppins", sans-serif;
+}
+
+.card-project .p1 {
+    font-size: 14px; 
+    color: #333;
+}
+
+.card-project p {
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    margin: 10px 0;
+    color: #333;
+}
+
+.card-project .image-card {
+    display: flex;
+    justify-content: left;
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.card-project .image-card img {
+    width: 30px; 
+    height: auto;
+    border-radius: 5px;
+}
+
+.button-card {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button-card a {
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 40px; 
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.card-project .time{
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 10px;
+    text-align: right;
+}
+
+.card-project a{
+    text-decoration: none;
+    color: black;
+}
+
+/* end card */
+
+/* hamburger menu */
+
+.hamburger-menu {
+    display: none;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: whitesmoke;
+}
+
+.hamburger-menu ul, li {
+    list-style-type: none;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: large;
+    font-family: "Poppins";
+}
+
+.hamburger-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.hamburger-hide {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+    .box {
+        width: 50%;
+        margin: 30px 0 0 30px;
+        justify-items: center;
+        font-size: xx-large;
+    }
+    .text {
+        text-align: center;
+        margin: 0 20px;
+        padding: 0 20px;
+    }
+    .text .p1 .p2 {
+        font-size: 100000px;
+    }
+    .button {
+        justify-content: center;
+    }
+
+    .left {
+        display: none;
+    }
+    .right {
+        display: none;
+    }
+
+    nav button {
+        display: block;
+    }
+
+    .hamburger-menu.show {
+        display: block;
+    }
+
+     .testimoni-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimoni-container .testimoni-card {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .testimoni-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimoni-container .testimoni-card {
+        width: 90%;
+    }
+
+    .testimoni-container .testimoni-card img {
+        margin:20px  auto;
+        display: block;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .right {
+        display: none;
+    }
+
+    nav button {
+        display: block;
+    }
+
+    .hamburger-menu.show {
+        display: block;
+    }
+}

@@ -1,0 +1,458 @@
+/* formulir contact */
+body{
+    font-family: "Poppins";
+    margin: 0;
+    background-color: rgb(203, 203, 203);
+}
+
+/* navbar */
+
+nav {
+    background-color: rgb(237, 237, 237);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+nav button{
+    color: #000000;
+    display: none;
+    background-color: rgb(237, 237, 237);
+}
+
+.scaled-img {
+    width: 50px;
+    height: auto;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 50px;
+}
+
+.left ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.left ul li {
+    list-style-type: none;
+    margin-right: 40px;
+}
+
+.left ul li a {
+    font-family: "Poppins";
+    text-decoration: none;
+    color: black;
+}
+
+.left ul li a:hover {
+    color: orangered;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.right a {
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    background-color: #f73513;
+    padding: 8px 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* my project */
+
+form{
+    width: 450px;
+    margin: 20px auto;
+}
+
+form p{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 600;
+    font-family: "poppins";
+    margin-bottom: 20px;
+}
+
+form div{
+    margin-bottom: 14px;
+}
+
+form label{
+    font-family: "poppins";
+    display: block;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+form input, select, textarea{
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.date{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.date .start-date, .end-date{
+    flex: 1;
+}
+
+textarea{
+    resize: none;
+    height: 120px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-right: 95%;
+}
+
+.checkbox-container input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+.checkbox-container label {
+    margin-right: 10px;
+    color: rgb(120, 120, 120);
+    white-space: nowrap;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; 
+}
+
+.form-container {
+    width: 450px; /* Sesuaikan dengan lebar form Anda */
+    margin: 20px auto; /* Margin untuk posisi tengah dan jarak dari elemen lain */
+}
+
+
+.blog-form {
+    display: flex;
+    justify-content: center;
+}
+
+.blog-form .form-container {
+    width: 500px;
+}
+
+.blog-form .form-container h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+button{
+    font-family: "poppins";
+    font-weight: bold;
+    background-color: rgb(9, 9, 63);
+    border: none;
+    border-radius: 10px;
+    padding: 3px 25px;
+    margin-top: 10px;
+    float: right;
+    color: white;
+}
+
+form .input-blog-image-group {
+   background-color: white;
+   width: 100%;
+   border-radius: 10px;
+}
+
+form .input-blog-image-group label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .input-blog-image-group label p {
+    color: rgb(150, 150, 150);
+    font-size: 15px;
+    background-color: #d3d1d1;
+    margin: 0px;
+    padding: 10px; 
+    border-radius: 10px;
+
+}
+
+form .input-blog-image-group label i {
+    margin-right: 3%;
+}
+
+form .button-group {
+    text-align: right;
+}
+
+.blog-list{
+    background-color: white;
+}
+
+.blog-list h1{
+    text-align: center;
+}
+
+#new-page {
+    margin: 0;
+    padding: 0;
+}
+
+#new-page:empty {
+    border: none;
+    min-height: 0;
+}
+
+
+/* card */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.blog-list {
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px; 
+}
+
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 40px 20px;
+    max-width: 100
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card h3 {
+    font-size: 20px; 
+    margin: 10px 0; 
+    font-family: "Poppins", sans-serif;
+}
+
+.card .p1 {
+    font-size: 14px; 
+    color: #333;
+}
+
+.card p {
+    overflow-wrap: break-word; /* Membungkus teks yang panjang */
+    word-wrap: break-word; /* Untuk kompatibilitas */
+    margin: 10px 0;
+    color: #333;
+}
+
+.image-card {
+    display: flex;
+    justify-content: left;
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.image-card img {
+    width: 30px; 
+    height: auto;
+    border-radius: 5px;
+}
+
+.button-card {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button-card a {
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 40px; 
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.card .time{
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 10px;
+    text-align: right;
+}
+
+.card a{
+    text-decoration: none;
+    color: black;
+}
+
+/* end card */
+
+/* hamburger menu */
+
+.hamburger-menu {
+    display: block;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: whitesmoke;
+}
+
+.hamburger-menu ul, li {
+    list-style-type: none;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: large;
+    font-family: "Poppins";
+}
+
+.hamburger-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.hamburger-hide {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+    .box {
+        width: 50%;
+        margin: 30px 0 0 30px;
+        justify-items: center;
+        font-size: xx-large;
+    }
+    .text {
+        text-align: center;
+        margin: 0 20px;
+        padding: 0 20px;
+    }
+    .text .p1 .p2 {
+        font-size: 100000px;
+    }
+    .button {
+        justify-content: center;
+    }
+
+    .left {
+        display: none;
+    }
+    .right {
+        display: none;
+    }
+
+    nav button {
+        display: block;
+    }
+
+    .hamburger-menu.show {
+        display: block;
+    }
+}.hamburger-menu {
+    display: none;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: whitesmoke;
+}
+
+.hamburger-menu ul, li {
+    list-style-type: none;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: large;
+    font-family: "Poppins";
+}
+
+.hamburger-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.hamburger-hide {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+    .box {
+        width: 50%;
+        margin: 30px 0 0 30px;
+        justify-items: center;
+        font-size: xx-large;
+    }
+    .text {
+        text-align: center;
+        margin: 0 20px;
+        padding: 0 20px;
+    }
+    .text .p1 .p2 {
+        font-size: 100000px;
+    }
+    .button {
+        justify-content: center;
+    }
+
+    .left {
+        display: none;
+    }
+    .right {
+        display: none;
+    }
+
+    nav button {
+        display: block;
+    }
+
+    .hamburger-menu.show {
+        display: block;
+    }
+}
+
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700&display=swap" rel="stylesheet">
+    <title>Testimonials</title>
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <img src="/assets/img/brandred.png" alt="icon" class="scaled-img">
+        </a>
+        <div class="left">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="./blog">Add Project</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="./testimoni">Testimonials</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <a href="contact">Contact Me</a>
+        </div>
+        <button onclick="clickHamburger()" style="border: none;"><i class="fa-solid fa-bars fa-2xl"></i></button>
+    </nav>
+    <div class="hamburger-menu hamburger-hide" id="hamburger-menu">
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="./blog">My Project</a>
+            </li>
+            <li>
+                <a href="./contact">Contact Me</a>
+            </li>
+            <li>
+                <a href="./testimoni">Testimonials</a>
+            </li>
+        </ul>
+    </div>
+
+    <h1>My Testimonials</h1>
+    <div class="rating-container">
+        <h4>Rating By Star</h4>
+        <div class="rating">
+            <button class="rating-btn" onclick="allTestimonial()">All</i></button>
+            <button class="rating-btn" onclick="filterTestimonial(1)">1 <i class="fa-solid fa-star fa-sm"></i></button>
+            <button class="rating-btn" onclick="filterTestimonial(2)">2 <i class="fa-solid fa-star fa-sm"></i></i></button>
+            <button class="rating-btn" onclick="filterTestimonial(3)">3 <i class="fa-solid fa-star fa-sm"></i></i></button>
+            <button class="rating-btn" onclick="filterTestimonial(4)">4 <i class="fa-solid fa-star fa-sm"></i></i></button>
+            <button class="rating-btn" onclick="filterTestimonial(5)">5 <i class="fa-solid fa-star fa-sm"></i></i></button>
+        </div>
+    </div>
+    <div class="testimoni-container" id="testimonials">
+        
+    </div>
+
+    <script src="./assets/js/testimonial.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
