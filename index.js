@@ -100,6 +100,7 @@ async function editBlog(req, res){
     start_date: req.body.startDate,
     end_date: req.body.endDate,
     duration: calculateDuration(req.body.startDate, req.body.endDate),
+    technologies: req.body.technologies
   };
 
   const query = `
@@ -109,7 +110,8 @@ async function editBlog(req, res){
     content = '${newBlog.content}',
     start_date = '${newBlog.start_date}',
     end_date = '${newBlog.end_date}',
-    duration = '${newBlog.duration}'
+    duration = '${newBlog.duration}',
+    technologies = '${newBlog.technologies}'
     where id = ${id}
   `
 
