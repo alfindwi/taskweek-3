@@ -311,10 +311,8 @@ form .button-group {
 }
 
 .card .time{
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 10px;
-    text-align: right;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .card a{

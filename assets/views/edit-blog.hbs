@@ -93,7 +93,7 @@
     <div class="blog">
         <div class="blog-form">
           <div class="form-container">
-              <form action="/edit-blog/{{data.id}}" method="POST">
+              <form action="/edit-blog/{{data.id}}" method="POST" enctype="multipart/form-data">
                 <p>UPDATE MY PROJECT</p>
                 <div class="project">
                     <label for="projectInput">Project Name</label>
@@ -120,19 +120,23 @@
                     <label for="">Technologies</label>
                     <div class="checkbox-grid">
                         <div class="checkbox-container">
-                            <input type="checkbox" id="option1" value="Node JS" name="technologies" value="option1">
+                            <input type="checkbox" id="option1" value="Node JS" name="technologies" 
+                            {{#if (includes data.technologies "Node JS")}}checked{{/if}}>
                             <label for="option1">Node JS</label>
                         </div>
                         <div class="checkbox-container">
-                            <input type="checkbox" id="option2" value="Next JS" name="technologies" value="option2">
+                            <input type="checkbox" id="option2" value="Next JS" name="technologies" 
+                            {{#if (includes data.technologies "Next JS")}}checked{{/if}}>
                             <label for="option2">Next JS</label>
                         </div>
                         <div class="checkbox-container">
-                            <input type="checkbox" id="option3" value="React JS" name="technologies" value="option3">
+                            <input type="checkbox" id="option3" value="React JS" name="technologies" 
+                            {{#if (includes data.technologies "React JS")}}checked{{/if}}>
                             <label for="option3">React JS</label>
                         </div>
                         <div class="checkbox-container">
-                            <input type="checkbox" id="option4" value="TypeScript" name="technologies" value="option4">
+                            <input type="checkbox" id="option4" value="TypeScript" name="technologies" 
+                            {{#if (includes data.technologies "TypeScript")}}checked{{/if}}>
                             <label for="option4">TypeScript</label>
                         </div>
                     </div>
@@ -144,7 +148,7 @@
                             <p>choose</p>
                             <i class="fa-solid fa-paperclip fa-lg"></i>
                         </label>
-                        <input type="file" id="inputimage" hidden />
+                        <input type="file" id="inputimage" name="image" hidden />
                     </div>
                 </div>
                 <div class="button-container">

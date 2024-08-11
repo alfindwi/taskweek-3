@@ -67,6 +67,24 @@
             >
           </li>
         </ul>
+        {{#if isLogin}}
+        <li class="nav-item">
+            <a style="margin-right: 20px; color: black"  class="nav-link active" aria-current="page" href="/logout"
+              >Logout</a
+            >
+          </li>
+        {{else}}
+        <li class="nav-item">
+            <a style="margin-right: 20px; color: black"  class="nav-link active" aria-current="page" href="/login"
+              >Login</a
+            >
+          </li>
+          <li class="nav-item">
+            <a style="margin-right: 20px; color: black"  class="nav-link active" aria-current="page" href="/register"
+              >Register</a
+            >
+          </li>
+        {{/if}}
         <a href="contact" class="btn btn-danger" style="background-color: orangered;">Contact Me</a>
       </div>
     </div>
@@ -92,7 +110,7 @@
     <div class="blog">
         <div class="blog-form">
           <div class="form-container">
-              <form action="/blog" method="POST">
+              <form action="/blog" method="POST" enctype="multipart/form-data">
                 <p>ADD MY PROJECT</p>
                 <div class="project">
                     <label for="projectInput">Project Name</label>
@@ -140,12 +158,14 @@
                             <p>choose</p>
                             <i class="fa-solid fa-paperclip fa-lg"></i>
                         </label>
-                        <input type="file" id="inputimage" name="inputimage" hidden />
+                        <input type="file" id="inputimage" name="image" hidden required />
                     </div>
                 </div>
+                {{#if isLogin}}
                 <div class="button-container">
                     <button type="submit" style="border-radius: 7px;">Submit</button>
                 </div>
+                {{/if}}
             </form>
           </div>
         </div>

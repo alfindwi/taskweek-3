@@ -106,7 +106,7 @@
                     ad dolorem sint doloremque ipsum aut sapiente ut deleniti culpa accusamus quos numquam? Voluptate.
                 </p>
                 <a href="contact" class="contact">Contact</a>
-                <a class="p3">download CV <a class="fa-solid fa-right-to-bracket fa-rotate-90" style="text-decoration: none; color: black;"></a></a>
+                <a class="p3">download CV <a class="fa-solid fa-right-to-bracket fa-rotate-90" style="text-decoration: none; color: black;" href="/assets/cv/CV Alfin Dwi Wadani.pdf" ></a></a>
                 <div class="button">
                     <a href="https://www.linkedin.com/in/alvin-dwi-a20452308/"><i class="fa-brands fa-linkedin-in"></i></a>
                     <a href="https://www.instagram.com/alvindvvi/"><i class="fa-brands fa-instagram"></i></a>
@@ -117,28 +117,29 @@
         </div>
     </div>
    <div id="new-page" class="blog-list">
-  {{#each data}}
-    <div class="card-project">
-      <img src="{{this.image}}" alt="image-project">
-      <a href="/blog-detail/{{this.id}}" target="_blank">
-        <h3>{{this.title}}</h3>
-      </a>
-      <p>Durasi: {{this.duration}}</p>
-      <p>{{this.content}}</p>
-      <div class="image-card">
-        <img src="./assets/img/ps.png" alt="">
-        <img src="./assets/img/andro.png" alt="">
-        <img src="./assets/img/js.png" alt="">
-      </div>
-      <div class="button-card">
-        <a class="btn btn-primary" href="/edit-blog/{{this.id}}" style="color: white;">Edit</a>
-        <a class="btn btn-primary" href="/delete-blog/{{this.id}}" style="color: white;">Delete</a>
-      </div>
-      <p class="time" id="time">{{this.created_at}}</p>
+  {{#if isLogin}}
+ {{#each data}}
+  <div class="card-project">
+    <img src="/uploads/{{this.image}}" alt="image-project">
+    <a href="/blog-detail/{{this.id}}" target="_blank">
+      <h3>{{this.title}}</h3>
+    </a>
+    <p>Durasi: {{this.duration}}</p>
+    <p>{{this.content}}</p>
+    <div class="image-card">
+      <img src="./assets/img/ps.png" alt="">
+      <img src="./assets/img/andro.png" alt="">
+      <img src="./assets/img/js.png" alt="">
     </div>
-  {{/each}}
+    <div class="button-card">
+      <a class="btn btn-primary" href="/edit-blog/{{this.id}}" style="color: white;">Edit</a>
+      <a class="btn btn-primary" href="/delete-blog/{{this.id}}" style="color: white;">Delete</a>
+    </div>
+    <p class="time" id="time">{{this.created_at}}</p>
+  </div>
 </div>
-
+{{/each}}
+{{/if}}
       
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/blog.js"></script>
