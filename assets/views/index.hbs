@@ -118,7 +118,7 @@
     </div>
    <div id="new-page" class="blog-list">
   {{#if isLogin}}
- {{#each data}}
+  {{#each data}}
   <div class="card-project">
     <img src="/uploads/{{this.image}}" alt="image-project">
     <a href="/blog-detail/{{this.id}}" target="_blank">
@@ -136,9 +136,10 @@
       <a class="btn btn-primary" href="/delete-blog/{{this.id}}" style="color: white;">Delete</a>
     </div>
     <p class="time" id="time">{{this.created_at}}</p>
+    <p class="time">User Id: {{this.user_id}}</p>
   </div>
-</div>
 {{/each}}
+</div>
 {{/if}}
       
     <script src="./assets/js/script.js"></script>

@@ -4,6 +4,7 @@ const port = 3000
 const session = require('express-session')
 const flash = require('express-flash')
 const multer  = require('multer')
+const bcrypt = require('bcrypt');
 
 const db = require("./src/lib/db");
 const { QueryTypes } = require("sequelize");
@@ -70,19 +71,26 @@ const blogs = [{}];
 
 
 async function renderHome(req, res) {
-
   try {
     const isLogin = req.session.isLogin;
-    const query = `SELECT * FROM blog;`;
-    const result = await db.query(query, { type: QueryTypes.SELECT });
 
+    let result = [];
+    if (isLogin) {
+      const query = `SELECT * FROM blog WHERE user_id = ${req.session.user.id};`;
+      result = await db.query(query, { type: QueryTypes.SELECT });
+    }
 
-    res.render('index', { data: result, isLogin: isLogin, 
-    user: req.session.user });
+    res.render('index', {
+      data: result, 
+      isLogin: isLogin,
+      user: req.session.user,
+    });
   } catch (error) {
     console.log(error);
   }
 }
+
+
 
 function renderBlog(req, res) {
   const isLogin = req.session.isLogin;
@@ -96,15 +104,15 @@ function renderBlog(req, res) {
 
 async function addBlog(req, res) {
   try {
-    console.log(req.body);
+
     const duration = calculateDuration(req.body.startDate, req.body.endDate);
 
     const query = `
       INSERT INTO blog
-      (title, content, start_date, end_date, duration, technologies, image, created_at)
+      (title, content, start_date, end_date, duration, technologies, image, created_at, user_id)
       VALUES
       ("${req.body.title}", "${req.body.content}", "${req.body.startDate}",
-      "${req.body.endDate}", "${duration}", "${req.body.technologies}", "${req.file.filename}", NOW())
+      "${req.body.endDate}", "${duration}", "${req.body.technologies}", "${req.file.filename}", NOW(), "${req.session.user.id}")
     `;
 
     await db.query(query);
@@ -113,6 +121,7 @@ async function addBlog(req, res) {
     console.log(error);
   }
 }
+
 
 
 
@@ -148,59 +157,56 @@ async function renderEditBlog(req, res) {
 async function editBlog(req, res) {
   try {
     const id = req.params.blog_id;
+    const userId = req.session.user.id;
 
-    const blogQuery = `SELECT * FROM blog WHERE id = ${id}`;
-    const existingBlog = await db.query(blogQuery, { type: QueryTypes.SELECT });
+    const blog = await db.query(
+      `SELECT * FROM blog WHERE id = ${id} AND user_id = ${userId}`,
+      { type: QueryTypes.SELECT }
+    );
 
-    const existingImage = existingBlog[0].image;
-    const newImage = req.file ? req.file.filename : existingImage;
+    if (blog.length === 0) {
+      req.flash("danger", "Anda tidak memiliki izin untuk mengedit proyek ini.");
+      return res.redirect("/");
+    }
 
-    const newBlog = {
-      id: id,
-      title: req.body.title,
-      content: req.body.content,
-      start_date: req.body.startDate,
-      end_date: req.body.endDate,
-      image: newImage,
-      duration: calculateDuration(req.body.startDate, req.body.endDate),
-      technologies: req.body.technologies
-    };
+    const newImage = req.file ? req.file.filename : blog[0].image;
 
     const query = `
       UPDATE blog
       SET
-        title = '${newBlog.title}',
-        content = '${newBlog.content}',
-        start_date = '${newBlog.start_date}',
-        end_date = '${newBlog.end_date}',
-        image = '${newBlog.image}',
-        duration = '${newBlog.duration}',
-        technologies = '${newBlog.technologies}'
-      WHERE id = ${id}
+        title = '${req.body.title}',
+        content = '${req.body.content}',
+        start_date = '${req.body.startDate}',
+        end_date = '${req.body.endDate}',
+        image = '${newImage}',
+        duration = '${calculateDuration(req.body.startDate, req.body.endDate)}',
+        technologies = '${req.body.technologies}'
+      WHERE id = ${id} AND user_id = ${userId}
     `;
 
     await db.query(query);
+    res.redirect("/");
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function deleteBlog(req, res) {
+  try {
+    const id = req.params.blog_id;
+    const userId = req.session.user.id;
+
+    const blog = await db.query(
+      `DELETE FROM blog WHERE id = ${id} AND user_id = ${userId}`
+    );
+
 
     res.redirect("/");
   } catch (error) {
     console.log(error);
-    res.status(500).send("Terjadi kesalahan saat memperbarui blog.");
   }
 }
 
-
-async function deleteBlog(req, res) {
-  const id = req.params.blog_id;
-
-  // const index = blogs.findIndex((blog) => blog.id == id);
-
-  // blogs.splice(index, 1);
-
-  const query = `DELETE FROM blog WHERE id = ${id}`;
-  await db.query(query);
-
-  res.redirect("/");
-}
 
 
 function renderContact(req, res){
@@ -230,27 +236,33 @@ function renderLogin(req, res) {
 
 async function login(req, res) {
   try {
-    const query = `SELECT * FROM user WHERE email = "${req.body.email}" AND password = "${req.body.password}"`
-    const existUser = await db.query(query, { type: QueryTypes.SELECT })
+    const query = `SELECT * FROM user WHERE email = "${req.body.email}"`;
+    const existUser = await db.query(query, { type: QueryTypes.SELECT });
 
-    if(existUser.length == 0){
-      req.flash("danger", "Email atau Password Salah")
-      res.redirect("/login")
-      return
+    if (existUser.length === 0) {
+      req.flash("danger", "Email atau Password Salah");
+      return res.redirect("/login");
     }
 
-    req.session.userId = existUser[0]
-    req.session.isLogin = true
-    
-    req.flash ("info", "Login Berhasil")
+    const validPassword = await bcrypt.compare(req.body.password, existUser[0].password);
 
-    res.redirect("/blog")
+    if (!validPassword) {
+      req.flash("danger", "Email atau Password Salah");
+      return res.redirect("/login");
+    }
+
+    req.session.user = existUser[0];
+    req.session.isLogin = true;
+    
+    req.flash("info", "Login Berhasil");
+    res.redirect("/blog");
   } catch (error) {
     console.log(error);
-  
-  res.redirect("/login")
+    res.redirect("/login");
   }
 }
+
+
 
 function renderRegister(req, res) {
   const isLogin = req.session.isLogin;
@@ -264,18 +276,18 @@ function renderRegister(req, res) {
 async function register(req, res) {
   try {
     const isLogin = req.session.isLogin;
-    if (!isLogin) {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    if (isLogin) {
       req.flash("danger", "Login Terlebih Dahulu");
       return res.redirect("/login");
     }
 
-    console.log(req.body);
 
     const query = `
     insert into user
     (fullname, email, password)
     values
-    ("${req.body.fullname}", "${req.body.email}", "${req.body.password}")`
+    ("${req.body.fullname}", "${req.body.email}", "${hashedPassword}")`
 
     await db.query(query, { type: QueryTypes.INSERT });
     console.log("SUKSES REGISTER")
