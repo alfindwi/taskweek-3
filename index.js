@@ -97,7 +97,7 @@ function renderBlog(req, res) {
 
   res.render("blog", {
     isLogin: isLogin, 
-    user: req.session.user,
+    user: req.session.user,   
   });
 }
 
@@ -150,7 +150,7 @@ async function renderEditBlog(req, res) {
     });
 
   } catch (error) {
-    console.error("Error fetching blog detail:", error);  
+    console.error(error);  
   }
 }
 
@@ -163,11 +163,6 @@ async function editBlog(req, res) {
       `SELECT * FROM blog WHERE id = ${id} AND user_id = ${userId}`,
       { type: QueryTypes.SELECT }
     );
-
-    if (blog.length === 0) {
-      req.flash("danger", "Anda tidak memiliki izin untuk mengedit proyek ini.");
-      return res.redirect("/");
-    }
 
     const newImage = req.file ? req.file.filename : blog[0].image;
 
